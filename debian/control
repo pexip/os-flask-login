@@ -1,0 +1,54 @@
+Source: flask-login
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders: Daniele Tricoli <eriol@debian.org>
+Section: python
+Priority: optional
+Build-Depends:
+ debhelper-compat (= 12),
+ dh-python,
+ python3-all,
+ python3-blinker,
+ python3-flask,
+ python3-mock,
+ python3-pytest,
+ python3-semantic-version,
+ python3-setuptools,
+ python3-sphinx,
+ python3-werkzeug,
+Standards-Version: 4.5.0
+Homepage: https://github.com/maxcountryman/flask-login
+Vcs-Git: https://salsa.debian.org/python-team/modules/flask-login.git
+Vcs-Browser: https://salsa.debian.org/python-team/modules/flask-login
+Testsuite: autopkgtest-pkg-python
+Rules-Requires-Root: no
+
+Package: python3-flask-login
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Suggests: python-flask-login-doc
+Description: user session management for Flask -- Python 3 module
+ Flask-Login provides user session management for Flask. It handles the
+ common tasks of logging in, logging out, and remembering your users'
+ sessions over extended periods of time.
+ .
+ Flask-Login is not bound to any particular database system or permissions
+ model. The only requirement is that your user objects implement a few
+ methods, and that you provide a callback to the extension capable of
+ loading users from their ID.
+ .
+ This package provides the Python 3 module.
+
+Package: python-flask-login-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Enhances: python3-flask-login
+Breaks: python3-flask-login-doc
+Replaces: python3-flask-login-doc
+Multi-Arch: foreign
+Description: user session management for Flask -- documentation
+ Flask-Login provides user session management for Flask. It handles the
+ common tasks of logging in, logging out, and remembering your users'
+ sessions over extended periods of time.
+ .
+ This package provides the documentation.

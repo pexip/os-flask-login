@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE = 1
+
+export PYBUILD_NAME=flask-login
+
+export PYBUILD_BEFORE_TEST=cp -r {dir}/test_login.py {build_dir}
+export PYBUILD_AFTER_TEST=rm -rf {build_dir}/test_login.py
+export PYBUILD_TEST_ARGS=-v
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem pybuild
+
+override_dh_sphinxdoc: http_proxy=127.0.0.1:9
+override_dh_sphinxdoc: https_proxy=127.0.0.1:9
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=. python3 -m sphinx -N -q -E -b html docs/ debian/python-flask-login-doc/usr/share/doc/python-flask-login-doc/html/
+	dh_sphinxdoc
+endif
+
+override_dh_compress:
+	dh_compress -X html/

@@ -1,0 +1,12 @@
+Document: flask-login
+Title: Debian flask-login Manual
+Author: Matthew Frazier
+Abstract: This manual describes flask-login - a Flask user session manager
+Section: Programming/Python
+
+Format: text
+Files: /usr/share/doc/python-flask-login-doc/rst/*.txt
+
+Format: HTML
+Index: /usr/share/doc/python-flask-login-doc/html/index.html
+Files: /usr/share/doc/python-flask-login-doc/html/*.html

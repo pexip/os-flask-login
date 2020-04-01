@@ -1,0 +1,125 @@
+flask-login (0.5.0-1) unstable; urgency=medium
+
+  * New upstream version 0.5.0.
+  * debian/clean
+    - Remove .pytest_cache directory.
+  * debian/control
+    - Bump Standards-Version to 4.5.0 (no changes needed).
+    - Switch to pytest for testing as upstream.
+  * debian/copyright
+    - Update copyright years.
+  * debian/patches/0001-disable-github-fork-ribbon.patch
+    - Refresh.
+  * debian/rules
+    - Re-enable previously failing test.
+  * debian/upstream/metadata
+    - Add Bug-Database URL.
+
+ -- Daniele Tricoli <eriol@debian.org>  Thu, 02 Apr 2020 00:16:53 +0200
+
+flask-login (0.4.1-3) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove ancient X-Python3-Version field
+  * Convert git repository from git-dpm to gbp layout
+  * Use 'python3 -m sphinx' instead of sphinx-build for building docs
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Carl Suster ]
+  * Remove myself as Uploader and add Daniele Tricoli.
+
+  [ Daniele Tricoli ]
+  * Set upstream metadata fields: Repository, Repository-Browse.
+  * Follow DEP-14 style branch names.
+  * debian/control
+    - Bump debhelper compat level to 12
+    - Sort Build-Depends.
+    - Bump Standards-Version to 4.4.1 (no changes needed).
+    - Set Rules-Requires-Root: no.
+  * debian/copyright
+    - Add myself.
+  * debian/rules
+    - Use pybuild to perform tests.
+    - Skip a test failing also upstream using Werkzeug>=0.15.0.
+
+ -- Daniele Tricoli <eriol@debian.org>  Sun, 22 Dec 2019 20:35:57 +0100
+
+flask-login (0.4.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix Breaks/Replaces of python3-flask-login-doc. Spotted by Andreas
+    Beckmann, thanks! (Closes: #891025 again)
+  * The doc package Enhances the module package instead of Suggests.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 18 Apr 2018 09:35:46 +0200
+
+flask-login (0.4.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+
+  [ Christoph Berg ]
+  * New upstream version.
+    + Remove 0002-allow-choice-of-nosetests-executable-in-run-tests.sh.patch.
+  * Add python3-semantic-version test dependency.
+  * Add missing docs/_themes copyright. (Closes: #889618)
+  * python-flask-login-doc: Replaces: python3-flask-login-doc.
+    (Closes: #891025)
+
+ -- Christoph Berg <myon@debian.org>  Mon, 09 Apr 2018 20:56:02 +0200
+
+flask-login (0.4.0-2) unstable; urgency=medium
+
+  * Add Forwarded headers to patches.
+  * Rename python{3,}-flask-login-doc (Closes: #854871)
+  * Mark doc package as Multi-Arch: foreign as per hint.
+  * Build-Depend on python3-nose-yanc now that it is built, allowing colour
+    in the test output.
+  * Update Standards-Version to 4.1.1:
+    - Switch copyright-format URL to HTTPS
+  * Add python autopkgtest suite.
+  * Build-Depend on the py3 version of sphinx instead of py2.
+
+ -- Carl Suster <carl@contraflo.ws>  Fri, 01 Dec 2017 15:45:42 +1100
+
+flask-login (0.4.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * New maintainer (Closes: #836501).
+  * Update d/compat to 10 and raise B-D on debhelper accordingly.
+  * Switch to using dh-python:
+    - add B-D on dh-python.
+  * Add myself to d/copyright for debian/.
+  * Change d/watch to follow GitHub releases.
+  * Change homepage to GitHub.
+  * Build the Python 3 module (Closes: #802614):
+    - replace B-Ds python{,3}-all and python{,3}-setuptools.
+  * Stop building the Python 2 module (no rdepends).
+  * Move Vcs to DPMT git.
+  * Bump standards version to 3.9.8 (no changes).
+  * Build the documentation in a -doc package:
+    - add B-D on python-sphinx,
+    - add links from the /usr/share/doc/python3-flask-login to
+      /user/share/doc/python3-flask-login-doc,
+    - register with doc-base,
+    - make the Python 3 module and -doc package Suggest each other.
+  * Install the upstream README file.
+  * Add 0001-disable-github-fork-ribbon.patch to turn off the GitHub ribbon.
+  * Add 0002-allow-choice-of-nosetests-executable-in-run-tests.sh.patch to
+    allow the tests to be run with nosetests3 for the Python 3 package.
+  * Run the test suite using upstream's makefile:
+    - add B-Ds on python3-flask, python3-mock, python3-nose, python3-werkzeug
+      and python3-blinker,
+    - cleanup tests_output/ and .coverage in d/clean.
+  * Use more general rule to ignore egg-info directory in d/clean and
+    d/source/options.
+
+ -- Carl Suster <carl@contraflo.ws>  Wed, 11 Jan 2017 14:23:07 +1100
+
+flask-login (0.2.6-1) unstable; urgency=low
+
+  * Initial release. Closes: 718554
+
+ -- Tonnerre LOMBARD <tonnerre@ancient-solutions.com>  Thu, 01 Aug 2013 01:40:50 +0200
